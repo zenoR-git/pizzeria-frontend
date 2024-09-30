@@ -1,0 +1,20 @@
+#table-wrapper{
+    width:66%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.total-section{
+    font-weight: bold;
+    font-size: 30px;
+    color:rgb(52, 52, 222)
+}
+
+#piz-btn{
+    color:rgb(255, 143, 5);
+    background-color: black;
+}
+
+#add-txt{
+    color:rgb(255, 143, 5);
+}
