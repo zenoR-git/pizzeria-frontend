@@ -155,8 +155,8 @@ function PreMadePizza() {
   ];
 
   return (
-    <div className="container">
-      <div className="row">
+    <div className="container my-5" style={{width:'90%'}}>
+      <div className="row g-2">
         {data.map((item) => {
           return (
             <div className="col-6">
