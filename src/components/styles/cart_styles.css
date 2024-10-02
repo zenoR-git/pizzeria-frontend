@@ -1,0 +1,12 @@
+#cart-buttons{
+    background-color: rgb(255, 143, 5);
+}
+
+#final-bill{
+    background-color: bisque;
+}
+
+#cart-container{
+    min-height:25rem;
+    background-color: beige;
+}

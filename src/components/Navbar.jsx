@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from "react-router-dom";
 
 //assets import
 import pizalogo from '../assets/PizzeriaLogo.png'
@@ -10,7 +11,7 @@ function Navbar() {
         <nav  className="navbar navbar-expand-lg text-light">
         <div className="container-fluid ">
           <a className="navbar-brand" href="/">
-            <span className="text-light">Pizzeria</span><img src={pizalogo} alt="pizzeria" width="40" height="34" />
+          <Link className="nav-link text-light" to='/'><span className="text-light">Pizzeria</span><img src={pizalogo} alt="pizzeria" width="40" height="34" /></Link>
           </a>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
@@ -18,13 +19,13 @@ function Navbar() {
           <div className="collapse navbar-collapse " id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link text-light" aria-current="page" href="#">Order Pizza</a>
+              <Link className="nav-link text-light" to='/buy/pizza'> Order Pizza</Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link text-light" aria-current="page" href="#">Build Ur Pizza</a>
+              <Link className="nav-link text-light" to='/make/pizza'> Build Ur Pizza</Link>
               </li>
             </ul>
-            <button className="btn btn-warning"><i className="bi bi-cart3"></i> Shopping</button>
+            <Link style={{textDecoration:'none'}} to='/cart'><button className="btn btn-warning"><i className="bi bi-cart3"></i> Shopping</button></Link>
           </div>
         </div>
       </nav>
