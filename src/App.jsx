@@ -6,14 +6,15 @@ import HomeComponent from './components/HomeComponent'
 import PizzaMaker from './components/PizzaMaker'
 import PreMadePizza from './components/PreMadePizza'
 import CartCheckout from './components/CartCheckout'
-
+import store from './store/store.mjs'
+import { Provider } from 'react-redux'
 
 function App() {
 
 
   return (
     <>
-    
+    <Provider store={store}>
     <BrowserRouter>
     <Navbar />
     <Routes>
@@ -24,6 +25,7 @@ function App() {
       </Routes>
       
     </BrowserRouter>
+    </Provider>
     </>
   )
 }

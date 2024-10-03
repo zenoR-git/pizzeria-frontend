@@ -1,9 +1,14 @@
 import React from 'react'
 
+import { useDispatch } from 'react-redux'
+import {addPremadePizza} from '../store/cart.mjs'
+
 // import assets here
 import './styles/pre_made_pizza_card.css'
 
 function PreMadePizzaCard({item}) {
+
+    const dispatch = useDispatch()
 
   return (
     <div className='card p-3 h-100'>
@@ -34,7 +39,9 @@ function PreMadePizzaCard({item}) {
             </div>
             <div className="col-3 text-center">
                 <img className='r-img-card' src={item.image} />
-                <button id='btn-card' className="btn mt-4"> Add to cart </button>
+                <button id='btn-card' className="btn mt-4" onClick={()=>{
+                    dispatch(addPremadePizza(item))
+                }}> Add to cart </button>
             </div>
         </div>
     </div>

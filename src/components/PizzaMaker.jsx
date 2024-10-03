@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from "react";
 
+import { useDispatch } from 'react-redux'
+import {addCustomPizza} from '../store/cart.mjs'
+
+
 // import assets
 import "./styles/pizza_maker.css";
 
@@ -8,28 +12,37 @@ function PizzaMaker() {
   const [toppings,setToppings] = useState([]);
   const [selectedItems, setSelectedItem] = useState([]);
 
+  const dispatch = useDispatch()
+
+  function handleSubmit(toppings,total){
+    let data = {
+      toppings:toppings,
+      price:total
+    }
+    dispatch(addCustomPizza(data))
+  }
+
   useEffect(()=>{
     fetch('http://localhost:3001/api/v1/ingredients').then((res)=>{
-      console.log(res)
       return res.json()
     }).then((data)=>{
-      console.log(data)
       setToppings(data)
     })
   },[])
 
   useEffect(() => {
-    console.log("aftereffecs", selectedItems);
+    console.log("aftereffects", selectedItems);
     calculateTotalCost();
   }, [selectedItems]);
 
   function itemHandler(event) {
     let id = event.target.value;
     if (event.target.checked) {
-      //if we unselect the checkbox
+      //if we select the checkbox
       let selectedOne = toppings.filter((item) => {
         return item.id == id;
       });
+      
       setSelectedItem([...selectedItems, ...selectedOne]);
     } else if (!event.target.checked) {
       //if we unselect the checkbox
@@ -91,7 +104,7 @@ function PizzaMaker() {
         </table>
         <div className="total-section">Total: &#8377; {total}</div>
         <div className="text-center">
-          <button id="piz-btn" className="btn">
+          <button id="piz-btn" className="btn" onClick={()=>{handleSubmit(selectedItems,total)}}>
             Build Pizza
           </button>
         </div>
