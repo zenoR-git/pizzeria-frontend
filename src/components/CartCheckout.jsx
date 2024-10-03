@@ -2,10 +2,7 @@ import React from "react";
 
 import { useSelector, useDispatch } from "react-redux";
 import {
-  addCustomPizza,
-  addPremadePizza,
-  removeCustomPizza,
-  removePremadePizza,
+  resetToDefault
 } from "../store/cart.mjs";
 
 import CartContent from "./CartContent";
@@ -16,6 +13,7 @@ function CartCheckout() {
     useSelector((state) => state.cart.preMadeOverall) +
     useSelector((state) => state.cart.customPizza.totalPrice);
 
+  const dispatch = useDispatch()
 
   return (
     <div id="cart-container" className="container my-5 rounded p-3">
@@ -35,7 +33,7 @@ function CartCheckout() {
             </div>
           </div>
           <div>
-            <button className="btn btn-success p-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <button className="btn btn-success p-2" data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={()=>{dispatch(resetToDefault())}}>
               Place Order
             </button>
           </div>
