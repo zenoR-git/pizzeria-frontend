@@ -1,0 +1,11 @@
+{
+    customPizza:{
+        count:
+        totalPrice:
+        toppings:[[{}]]
+        indiviualPrice:[Number]
+    },
+    preMadePizza:[{}],
+    overall: Number
+    }
+}
