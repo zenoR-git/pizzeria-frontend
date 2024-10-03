@@ -4,6 +4,7 @@
 
 #final-bill{
     background-color: bisque;
+    max-height: 230px;
 }
 
 #cart-container{
